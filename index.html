@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="description" content="Carlos Alberto — Arquitecto e Fabricação Técnica na Madeira. Apoio a ateliers de arquitetura em planimetria técnica CAD/BIM, modelação e prototipagem física em madeira e metal.">
+  <meta name="author" content="Carlos Alberto Basilio">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Carlos Alberto — Arquitetura & Materialização Técnica">
+  <meta property="og:description" content="Da ideia conceptual à precisão executiva e à peça tangível. Apoio técnico para ateliers e projetos particulares.">
+  <meta property="og:image" content="assets/images/hero-villa.jpg">
+  <meta property="og:type" content="website">
+
+  <title>Carlos Alberto | Arquitetura & Rigor Técnico</title>
+
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2328201A'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF7F2' font-family='sans-serif' font-weight='700' font-size='15'%3ECA%3C/text%3E%3C/svg%3E">
+
+  <!-- Typography: Editorial Serif (Cormorant Garamond & Cinzel) + Technical Grotesk (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Ambient Noise Overlay for Editorial Texture -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Floating Island Navigation -->
+  <header class="header-island" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-identity" aria-label="Carlos Alberto Arquitetura">
+        <span class="brand-monogram">CA</span>
+        <span class="brand-text">
+          <span class="brand-name">CARLOS ALBERTO</span>
+          <span class="brand-title" data-i18n="nav.role">ARQUITETURA & OFÍCIO</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="main-nav" aria-label="Navegação principal">
+        <a href="#problema" class="nav-item" data-i18n="nav.problem">O Problema</a>
+        <a href="#servicos" class="nav-item" data-i18n="nav.services">Serviços</a>
+        <a href="#metodo" class="nav-item" data-i18n="nav.method">Metodologia</a>
+        <a href="#trajetoria" class="nav-item" data-i18n="nav.timeline">Trajetória</a>
+        <a href="#faq" class="nav-item" data-i18n="nav.faq">Dúvidas</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Native Language Switcher -->
+        <div class="lang-switcher" role="group" aria-label="Selecionar idioma">
+          <button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
+          <span class="lang-separator">/</span>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+          <span class="lang-separator">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <a href="#contacto" class="btn-primary btn-island-cta">
+          <span data-i18n="cta.contact">Contactar</span>
+          <span class="btn-icon-wrapper" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="mobile-menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-overlay" aria-label="Abrir menu">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-overlay" aria-hidden="true">
+    <div class="mobile-nav-content">
+      <nav class="mobile-nav-links">
+        <a href="#problema" class="mobile-nav-link" data-i18n="nav.problem">O Problema</a>
+        <a href="#servicos" class="mobile-nav-link" data-i18n="nav.services">Serviços</a>
+        <a href="#metodo" class="mobile-nav-link" data-i18n="nav.method">Metodologia</a>
+        <a href="#trajetoria" class="mobile-nav-link" data-i18n="nav.timeline">Trajetória</a>
+        <a href="#faq" class="mobile-nav-link" data-i18n="nav.faq">Dúvidas</a>
+        <a href="#contacto" class="mobile-nav-link highlight" data-i18n="cta.contact">Contactar</a>
+      </nav>
+      <div class="mobile-nav-footer">
+        <p class="mobile-location" data-i18n="hero.location">Madeira, Portugal · Disponível Remotamente</p>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- 1. HERO SECTION -->
+    <section class="section-hero" id="hero">
+      <div class="container hero-grid">
+        <!-- Left: Transformation & Specific Explanation -->
+        <div class="hero-content reveal-on-scroll">
+          <div class="eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="hero.badge">ARQUITETURA & MATERIALIZAÇÃO TÉCNICA · MADEIRA & REMOTO</span>
+          </div>
+
+          <h1 class="hero-title" data-i18n="hero.title">
+            Da ideia conceptual à precisão executiva e à peça tangível.
+          </h1>
+
+          <p class="hero-description" data-i18n="hero.description">
+            Desenvolvo planimetria técnica CAD/BIM sem margem de erro, modelação arquitetónica de alta fidelidade e prototipagem física de precisão (madeira, corte a laser e metal) para ateliês de arquitetura e projetos privados que exigem rigor absoluto.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#contacto" class="btn-primary btn-large">
+              <span data-i18n="cta.contact">Contactar</span>
+              <span class="btn-icon-wrapper" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+
+            <div class="hero-pill-status">
+              <span class="status-indicator"></span>
+              <span class="status-text" data-i18n="hero.availability">Disponibilidade Imediata para Novos Projetos</span>
+            </div>
+          </div>
+
+          <div class="hero-credentials-row">
+            <div class="credential-item">
+              <span class="cred-number">2022</span>
+              <span class="cred-label" data-i18n="hero.grad">Licenciatura em Arquitetura (UJAP)</span>
+            </div>
+            <div class="credential-divider"></div>
+            <div class="credential-item">
+              <span class="cred-number">100%</span>
+              <span class="cred-label" data-i18n="hero.precision">Rigor Geométrico & Construtivo</span>
+            </div>
+            <div class="credential-divider"></div>
+            <div class="credential-item">
+              <span class="cred-number">PT / ES / EN</span>
+              <span class="cred-label" data-i18n="hero.languages">Comunicação Sem Fronteiras</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Video Frame / Cinematic Media Block -->
+        <div class="hero-media-wrapper reveal-on-scroll">
+          <div class="double-bezel video-container" id="hero-video-box">
+            <div class="video-inner">
+              <video 
+                id="hero-video" 
+                poster="assets/images/hero-villa.jpg" 
+                playsinline 
+                loop 
+                muted
+                preload="metadata">
+                <source src="assets/video/architecture-reel.mp4" type="video/mp4">
+                O seu navegador não suporta a reprodução de vídeo.
+              </video>
+
+              <!-- Video Overlay with Custom Controls -->
+              <div class="video-overlay" id="video-overlay">
+                <div class="video-info-pill">
+                  <span class="rec-dot"></span>
+                  <span data-i18n="hero.videoLabel">Registo de Processo Construtivo & Espaço</span>
+                </div>
+
+                <button type="button" class="video-play-btn" id="video-play-toggle" aria-label="Reproduzir vídeo">
+                  <svg class="icon-play" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5.14v14.72a1 1 0 0 0 1.5.86l12-7.36a1 1 0 0 0 0-1.72l-12-7.36A1 1 0 0 0 8 5.14z"/>
+                  </svg>
+                  <svg class="icon-pause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                    <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/>
+                  </svg>
+                </button>
+
+                <div class="video-footer-strip">
+                  <span class="video-tag" data-i18n="hero.videoSubtitle">Da Concepção Técnica à Matéria</span>
+                  <button type="button" class="video-sound-btn" id="video-sound-toggle" aria-label="Ativar som">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PROBLEM SECTION (Empathy with Client Reality) -->
+    <section class="section-padding bg-warm" id="problema">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="problem.tag">O DESAFIO REAL</span>
+          </div>
+          <h2 class="section-heading" data-i18n="problem.title">
+            Prazos a esgotar, ateliês sobrecarregados ou projetos parados por falta de rigor técnico?
+          </h2>
+          <p class="section-subheading" data-i18n="problem.subtitle">
+            Na rotina de projetos de arquitetura e obras particulares, os mesmos nós voltam a repetir-se, custando tempo, dinheiro e noites sem dormir:
+          </p>
+        </div>
+
+        <div class="problem-split-grid">
+          <!-- 3 Pain Cards (Inspired by wireframe section 2) -->
+          <div class="problem-cards-column">
+            <article class="double-bezel problem-card reveal-on-scroll">
+              <div class="problem-card-inner">
+                <div class="problem-card-header">
+                  <span class="problem-number">01</span>
+                  <div class="problem-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </div>
+                </div>
+                <h3 class="problem-title" data-i18n="problem.p1Title">Gargalos no Desenho Técnico Executivo</h3>
+                <p class="problem-text" data-i18n="problem.p1Desc">
+                  Entregas de licenciamento ou obra acumuladas. A sua equipa principal precisa de criar conceitos e atender clientes, mas consome semanas inteiras a retificar cotas, mapas de vãos e pormenores construtivos.
+                </p>
+              </div>
+            </article>
+
+            <article class="double-bezel problem-card reveal-on-scroll">
+              <div class="problem-card-inner">
+                <div class="problem-card-header">
+                  <span class="problem-number">02</span>
+                  <div class="problem-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                      <line x1="12" y1="9" x2="12" y2="13"/>
+                      <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                  </div>
+                </div>
+                <h3 class="problem-title" data-i18n="problem.p2Title">Erros e Surpresas em Fase de Obra</h3>
+                <p class="problem-text" data-i18n="problem.p2Desc">
+                  Um projeto conceptual sem plantas executivas precisas gera desvios orçamentais graves. Empreiteiros a improvisar no terreno por ausência de detalhes construtivos milimétricos e compatibilizados.
+                </p>
+              </div>
+            </article>
+
+            <article class="double-bezel problem-card reveal-on-scroll">
+              <div class="problem-card-inner">
+                <div class="problem-card-header">
+                  <span class="problem-number">03</span>
+                  <div class="problem-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                      <polyline points="2 17 12 22 22 17"/>
+                      <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                  </div>
+                </div>
+                <h3 class="problem-title" data-i18n="problem.p3Title">Distância entre o Ficheiro Digital e a Matéria Real</h3>
+                <p class="problem-text" data-i18n="problem.p3Desc">
+                  Dificuldade em comunicar volumes complexos a clientes ou fabricar peças exclusivas (madeira sob medida, pormenores em chapa metálica) antes de investir em produções caras sem protótipo prévio.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Problem Visual: Technical Drawing Workbench -->
+          <div class="problem-visual-column reveal-on-scroll">
+            <div class="double-bezel visual-frame">
+              <div class="visual-frame-inner">
+                <img 
+                  src="assets/images/technical-drafting.jpg" 
+                  alt="Mesa de desenho técnico com plantas executivas, escalímetro de latão e amostras de madeira e metal cortadas com precisão" 
+                  loading="eager" 
+                  class="featured-photo">
+                <div class="visual-caption">
+                  <span class="caption-tag" data-i18n="problem.captionTag">RIGOR CONSTRUTIVO</span>
+                  <p class="caption-text" data-i18n="problem.captionText">Cada traço corresponde a uma dimensão física verificada. Sem margem para improviso.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SOLUTION & SERVICES (What Changes with Carlos) -->
+    <section class="section-padding" id="servicos">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="services.tag">SERVIÇOS DE SUPORTE & FABRICAÇÃO</span>
+          </div>
+          <h2 class="section-heading" data-i18n="services.title">
+            O que muda ao integrar o meu trabalho no seu fluxo
+          </h2>
+          <p class="section-subheading" data-i18n="services.subtitle">
+            Três eixos práticos concebidos para aliviar a carga do seu ateliê e materializar espaços com precisão cirúrgica:
+          </p>
+        </div>
+
+        <div class="services-triple-grid">
+          <!-- Service 1: Executive Plans -->
+          <article class="double-bezel service-card reveal-on-scroll">
+            <div class="service-card-inner">
+              <div class="service-badge-pill" data-i18n="services.s1Pill">PLANOS & EXECUÇÃO</div>
+              <h3 class="service-name" data-i18n="services.s1Title">Planimetria Técnica & Desenho Executivo</h3>
+              <p class="service-body" data-i18n="services.s1Desc">
+                Levantamento, revisão e depuração integral de peças desenhadas. Plantas cotadas, cortes longitudinais/transversais, alçados e mapas de vãos prontos para submissão legal e execução em estaleiro de obra.
+              </p>
+              <ul class="service-checklist">
+                <li data-i18n="services.s1Item1">Plantas de cotas e acabamentos milimétricos</li>
+                <li data-i18n="services.s1Item2">Pormenores construtivos em escalas 1:10 e 1:20</li>
+                <li data-i18n="services.s1Item3">Mapas de vãos e compatibilização de especialidades</li>
+              </ul>
+              <div class="service-foot">
+                <a href="#contacto" class="service-action-link">
+                  <span data-i18n="cta.contact">Contactar</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service 2: 3D CAD/BIM Modeling & Spatial Analysis -->
+          <article class="double-bezel service-card highlight-card reveal-on-scroll">
+            <div class="service-card-inner">
+              <div class="service-badge-pill gold" data-i18n="services.s2Pill">MODELAÇÃO & VISÃO</div>
+              <h3 class="service-name" data-i18n="services.s2Title">Modelação Arquitetónica & Análise Volumétrica</h3>
+              <p class="service-body" data-i18n="services.s2Desc">
+                Construção de modelos tridimensionais limpos e geometricamente exatos para estudo de proporção, iluminação natural e impacto urbano. Apresentações que convencem clientes finais e desfazem incertezas.
+              </p>
+              <ul class="service-checklist">
+                <li data-i18n="services.s2Item1">Modelos volumétricos rigorosos e otimizados</li>
+                <li data-i18n="services.s2Item2">Axonometrias explodidas e estudos solares</li>
+                <li data-i18n="services.s2Item3">Apoio a remodelações e reabilitação de interiores</li>
+              </ul>
+              <div class="service-foot">
+                <a href="#contacto" class="service-action-link">
+                  <span data-i18n="cta.contact">Contactar</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service 3: Physical Prototyping & Bespoke Craft -->
+          <article class="double-bezel service-card reveal-on-scroll">
+            <div class="service-card-inner">
+              <div class="service-badge-pill" data-i18n="services.s3Pill">OFICINA & MATÉRIA</div>
+              <h3 class="service-name" data-i18n="services.s3Title">Prototipagem Física, Madeira & Metal</h3>
+              <p class="service-body" data-i18n="services.s3Desc">
+                Capacidade única de materializar em oficina física: maquetes arquitetónicas de estudo/exposição, marcenaria de detalhe, pirografia técnica em madeira maciça e peças recortadas/gravadas em chapa metálica.
+              </p>
+              <ul class="service-checklist">
+                <li data-i18n="services.s3Item1">Maquetes volumétricas em bétula, latão e acrílico</li>
+                <li data-i18n="services.s3Item2">Pirografia artística e desenhos técnicos gravados em madeira</li>
+                <li data-i18n="services.s3Item3">Corte, furação e gravação em lâminas de metal</li>
+              </ul>
+              <div class="service-foot">
+                <a href="#contacto" class="service-action-link">
+                  <span data-i18n="cta.contact">Contactar</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Showcase Bento Grid: Maqueta & Wood/Metal Pieces (Inspired by right grid in wireframe) -->
+        <div class="showcase-bento-grid mt-20">
+          <div class="double-bezel bento-card bento-large reveal-on-scroll">
+            <div class="bento-inner">
+              <img 
+                src="assets/images/scale-model.jpg" 
+                alt="Maquete arquitetónica física de alta precisão em madeira de bétula com detalhes em latão sobre pedestal de travertino" 
+                loading="eager" 
+                class="bento-img">
+              <div class="bento-info-overlay">
+                <span class="bento-tag" data-i18n="services.bento1Tag">MAQUETISMO TÉCNICO</span>
+                <h4 class="bento-title" data-i18n="services.bento1Title">Compreensão Espacial Tangível em Escala 1:30</h4>
+                <p class="bento-sub" data-i18n="services.bento1Sub">Bétula selecionada, latão trabalhado e acrílico acetinado.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="double-bezel bento-card bento-small reveal-on-scroll">
+            <div class="bento-inner">
+              <img 
+                src="assets/images/wood-metal-craft.jpg" 
+                alt="Pormenor de peça de madeira maciça com alçado arquitetónico pirogravado e ferragem em bronze usinado" 
+                loading="eager" 
+                class="bento-img">
+              <div class="bento-info-overlay">
+                <span class="bento-tag" data-i18n="services.bento2Tag">FABRICAÇÃO & PIROGRAFIA</span>
+                <h4 class="bento-title" data-i18n="services.bento2Title">Fusão de Carpintaria de Precisão & Metal</h4>
+                <p class="bento-sub" data-i18n="services.bento2Sub">Gravações botânicas ou técnicas em madeira de nogueira.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. METHODOLOGY & RIGOR (Characteristics of Carlos) -->
+    <section class="section-padding bg-warm" id="metodo">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="method.tag">RIGOR & POSTURA PROFISSIONAL</span>
+          </div>
+          <h2 class="section-heading" data-i18n="method.title">
+            A garantia de um parceiro de confiança
+          </h2>
+          <p class="section-subheading" data-i18n="method.subtitle">
+            A técnica sem disciplina não resolve prazos. Conheça as diretrizes que regem cada colaboração:
+          </p>
+        </div>
+
+        <div class="traits-grid">
+          <!-- Trait 1: Punctuality -->
+          <div class="double-bezel trait-card reveal-on-scroll">
+            <div class="trait-card-inner">
+              <div class="trait-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <h3 class="trait-title" data-i18n="method.t1Title">Pontualidade & Compromisso Inabalável</h3>
+              <p class="trait-desc" data-i18n="method.t1Desc">
+                Os prazos acordados são respeitados com rigor absoluto. Comunicação antecipada de cada marco e entregas faseadas sem desculpas nem surpresas de última hora.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trait 2: Strict instruction following & precision -->
+          <div class="double-bezel trait-card reveal-on-scroll">
+            <div class="trait-card-inner">
+              <div class="trait-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <h3 class="trait-title" data-i18n="method.t2Title">Atenção Extrema às Indicações</h3>
+              <p class="trait-desc" data-i18n="method.t2Desc">
+                Capacidade de interpretar e seguir à risca os padrões gráficos, layers e convenções adotadas pelo seu ateliê. O projeto é executado de forma correta à primeira tentativa.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trait 3: Pragmatic problem-solving -->
+          <div class="double-bezel trait-card reveal-on-scroll">
+            <div class="trait-card-inner">
+              <div class="trait-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </div>
+              <h3 class="trait-title" data-i18n="method.t3Title">Otimização Prática de Soluções</h3>
+              <p class="trait-desc" data-i18n="method.t3Desc">
+                Espírito prático e analítico. Encontrar a forma mais limpa, económica e inteligente de resolver um nó construtivo difícil sem complicar a execução.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trait 4: Hardware, software and workshop agility -->
+          <div class="double-bezel trait-card reveal-on-scroll">
+            <div class="trait-card-inner">
+              <div class="trait-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <h3 class="trait-title" data-i18n="method.t4Title">Domínio Integrado: Software & Ferramentas</h3>
+              <p class="trait-desc" data-i18n="method.t4Desc">
+                Conhecimento aprofundado tanto de ecossistemas digitais de arquitetura quanto de ferramentas de oficina, corte de precisão, calibração mecânica e seleção de materiais.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. TIMELINE & QUALIFICATIONS (Milestones like in wireframe) -->
+    <section class="section-padding" id="trajetoria">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="timeline.tag">FORMAÇÃO & BASE</span>
+          </div>
+          <h2 class="section-heading" data-i18n="timeline.title">
+            Fundamentos sólidos e evolução contínua
+          </h2>
+          <p class="section-subheading" data-i18n="timeline.subtitle">
+            Uma formação académica rigorosa aliada à prática oficinal diária:
+          </p>
+        </div>
+
+        <div class="timeline-stepper reveal-on-scroll">
+          <!-- Step 1: 2022 Degree -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-dot"></span>
+              <span class="step-year">2022</span>
+            </div>
+            <div class="double-bezel step-content">
+              <div class="step-content-inner">
+                <span class="step-tag" data-i18n="timeline.s1Tag">LICENCIATURA OFICIAL</span>
+                <h3 class="step-title" data-i18n="timeline.s1Title">Licenciatura em Arquitetura</h3>
+                <p class="step-institution">Universidad José Antonio Páez (San Diego, Valencia, Venezuela)</p>
+                <p class="step-text" data-i18n="timeline.s1Desc">
+                  Conclusão do percurso formativo em arquitetura com ênfase em geometria descritiva, cálculo estrutural, tecnologia dos materiais, composição espacial e desenho urbano.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Europe / Madeira Setup -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-dot"></span>
+              <span class="step-year" data-i18n="timeline.s2Year">HOJE</span>
+            </div>
+            <div class="double-bezel step-content">
+              <div class="step-content-inner">
+                <span class="step-tag" data-i18n="timeline.s2Tag">BASE OPERATIVA EUROPEIA</span>
+                <h3 class="step-title" data-i18n="timeline.s2Title">Atuação a partir da Madeira para o Mundo</h3>
+                <p class="step-institution" data-i18n="timeline.s2Inst">Funchal / Madeira, Portugal · Colaboração Remota</p>
+                <p class="step-text" data-i18n="timeline.s2Desc">
+                  Instalação em Portugal, combinando apoio a ateliês locais com parcerias técnicas à distância para Espanha, Portugal continental e clientes da América Latina.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Material Craft -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-dot"></span>
+              <span class="step-year" data-i18n="timeline.s3Year">OFÍCIO</span>
+            </div>
+            <div class="double-bezel step-content">
+              <div class="step-content-inner">
+                <span class="step-tag" data-i18n="timeline.s3Tag">OFICINA TÉCNICA</span>
+                <h3 class="step-title" data-i18n="timeline.s3Title">Prática em Marcenaria, Metal e Pirografia</h3>
+                <p class="step-institution" data-i18n="timeline.s3Inst">Atelier de Fabrico Físico & Prototipagem</p>
+                <p class="step-text" data-i18n="timeline.s3Desc">
+                  Desenvolvimento contínuo de técnicas manuais e mecanizadas: corte e gravação de chapas metálicas, pirografia arquitetónica sobre madeira e maquetismo de detalhe.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQS ACCORDION (Fiel al prototipo) -->
+    <section class="section-padding bg-warm" id="faq">
+      <div class="container container-narrow">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="faq.tag">CLAREZA TOTAL</span>
+          </div>
+          <h2 class="section-heading" data-i18n="faq.title">
+            Perguntas Frequentes
+          </h2>
+          <p class="section-subheading" data-i18n="faq.subtitle">
+            Respostas diretas sobre como podemos colaborar de forma fluida:
+          </p>
+        </div>
+
+        <div class="faq-accordion-list" id="faq-list">
+          <!-- FAQ 1 -->
+          <div class="double-bezel faq-item reveal-on-scroll">
+            <div class="faq-item-inner">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-1">
+                <span class="faq-question" data-i18n="faq.q1">Como colaboramos se o seu ateliê estiver fora da Madeira?</span>
+                <span class="faq-icon-cross" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer-collapse" id="faq-ans-1" hidden>
+                <p class="faq-answer-text" data-i18n="faq.a1">
+                  O fluxo remoto é extremamente ágil e estandardizado. Partilhamos pastas em nuvem (Google Drive, Dropbox ou OneDrive), alinhamos especificações por videochamada e defino marcos claros com ficheiros versionados. Trabalho nos fusos horários de Portugal/Europa e América com total disponibilidade de contacto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="double-bezel faq-item reveal-on-scroll">
+            <div class="faq-item-inner">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2">
+                <span class="faq-question" data-i18n="faq.q2">Em que formatos entrega os desenhos técnicos e modelos?</span>
+                <span class="faq-icon-cross" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer-collapse" id="faq-ans-2" hidden>
+                <p class="faq-answer-text" data-i18n="faq.a2">
+                  Entrego ficheiros em DWG (AutoCAD organizado por camadas rigorosas), PDF vetoriais prontos a imprimir à escala, modelos IFC/OBJ para compatibilização e ficheiros DXF ou vetoriais limpos prontos para máquinas de corte a laser ou CNC.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="double-bezel faq-item reveal-on-scroll">
+            <div class="faq-item-inner">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3">
+                <span class="faq-question" data-i18n="faq.q3">Aceita trabalhos pontuais ou apenas colaborações contínuas?</span>
+                <span class="faq-icon-cross" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer-collapse" id="faq-ans-3" hidden>
+                <p class="faq-answer-text" data-i18n="faq.a3">
+                  Aceito ambas as modalidades. Posso assumir um pacote específico de desenho técnico para desatar um pico urgente de entregas ou estabelecer uma colaboração regular por avença/horas com ateliês que precisem de suporte técnico mensal flexível.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="double-bezel faq-item reveal-on-scroll">
+            <div class="faq-item-inner">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-4">
+                <span class="faq-question" data-i18n="faq.q4">Como solicito um orçamento ou estimativa de prazo?</span>
+                <span class="faq-icon-cross" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer-collapse" id="faq-ans-4" hidden>
+                <p class="faq-answer-text" data-i18n="faq.a4">
+                  Basta clicar em "Contactar" abaixo para enviar um e-mail direto com uma breve descrição do que precisa (ou os ficheiros base se já existirem). Respondo no próprio dia ou num prazo máximo de 24 horas úteis com uma proposta de prazo e orçamento sem qualquer compromisso.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. DIRECT CONTACT & FOOTER (Clean, No-form Friction, Direct Email & Socials) -->
+    <section class="section-padding section-contact" id="contacto">
+      <div class="container container-contact">
+        <div class="double-bezel contact-master-card reveal-on-scroll">
+          <div class="contact-card-inner">
+            <div class="contact-split">
+              <!-- Left: Carlos's Photo & Bio -->
+              <div class="contact-profile-side">
+                <div class="profile-photo-wrapper">
+                  <img 
+                    src="assets/images/carlos-portrait.jpg" 
+                    alt="Retrato profissional de Carlos Alberto em mesa de desenho arquitetónico" 
+                    loading="eager"
+                    class="profile-photo"
+                    id="client-portrait">
+                  <div class="profile-badge">
+                    <span class="badge-dot-live"></span>
+                    <span data-i18n="contact.badgeRole">Arquiteto & Maker</span>
+                  </div>
+                </div>
+
+                <div class="profile-details">
+                  <h3 class="profile-name">Carlos Alberto Basilio</h3>
+                  <p class="profile-title" data-i18n="contact.profileSub">Licenciado em Arquitetura · UJAP 2022</p>
+                  <p class="profile-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span>Madeira, Portugal</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Right: Direct Contact Actions (No Form Bloat) -->
+              <div class="contact-action-side">
+                <div class="eyebrow-badge">
+                  <span class="badge-dot"></span>
+                  <span data-i18n="contact.tag">CONTACTO DIRETO</span>
+                </div>
+                <h2 class="contact-heading" data-i18n="contact.title">
+                  Vamos dar forma ao seu próximo projeto?
+                </h2>
+                <p class="contact-description" data-i18n="contact.desc">
+                  Quer seja para desatar um pico urgente de desenho no seu ateliê, encomendar uma maquete física ou materializar uma peça à medida em madeira e metal, fale diretamente comigo.
+                </p>
+
+                <!-- One-click direct email & copy button -->
+                <div class="contact-fast-actions">
+                  <a href="mailto:carlosbasilio.arq@gmail.com" class="btn-primary btn-large btn-email-direct" id="btn-mail-to">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span data-i18n="contact.sendEmail">Enviar E-mail Direto</span>
+                  </a>
+
+                  <button type="button" class="btn-secondary btn-large btn-copy-email" id="btn-copy-mail" aria-label="Copiar endereço de e-mail">
+                    <svg class="icon-copy" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    <span id="copy-email-text" data-i18n="contact.copyEmail">Copiar E-mail</span>
+                  </button>
+                </div>
+
+                <div class="email-display-pill">
+                  <span class="email-label" data-i18n="contact.emailLabel">Endereço:</span>
+                  <code class="email-address">carlosbasilio.arq@gmail.com</code>
+                </div>
+
+                <!-- Verified Social Links -->
+                <div class="social-links-block">
+                  <span class="social-heading" data-i18n="contact.socialsLabel">Redes sociais verificadas:</span>
+                  <div class="social-pills-row">
+                    <a href="https://www.instagram.com/carlosdbasilio?stkn=c3podnd3Ym1ud2M5" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Instagram de Carlos Basilio">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                      </svg>
+                      <span>Instagram · @carlosdbasilio</span>
+                      <svg class="pill-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+
+                    <a href="https://www.facebook.com/profile.php?id=100000544516446" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Facebook de Carlos Basilio">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                      </svg>
+                      <span>Facebook</span>
+                      <svg class="pill-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-brand">CARLOS ALBERTO</span>
+        <span class="footer-copy">© <span id="current-year">2026</span> · <span data-i18n="footer.rights">Todos os direitos reservados. Arquitetura & Materialização.</span></span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-location" data-i18n="footer.location">Madeira, Portugal · Disponibilidade Local & Internacional</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Haptic Toast Notification Container (Sonner-inspired) -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
