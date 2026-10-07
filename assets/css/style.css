@@ -134,6 +134,16 @@ button {
   padding-right: clamp(1.25rem, 4vw, 2.5rem);
 }
 
+/* Expansive Architecture: Wide Canvas inspired by TileSuite & Editorial Design */
+.container-expansive {
+  width: 100%;
+  max-width: 1540px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 4vw, 3.5rem);
+  padding-right: clamp(1.5rem, 4vw, 3.5rem);
+}
+
 .container-narrow {
   max-width: 860px;
 }
@@ -537,17 +547,17 @@ button {
   color: var(--color-espresso-muted);
 }
 
-/* --- 6. HERO SECTION --- */
+/* --- 6. HERO SECTION (EXPANSIVE 50/50 SPLIT INSPIRED BY IMAGE 1 & TILESUITE) --- */
 .section-hero {
-  padding-top: clamp(7.5rem, 14vw, 11rem);
-  padding-bottom: clamp(4rem, 8vw, 6.5rem);
+  padding-top: clamp(6.5rem, 11vw, 9.5rem);
+  padding-bottom: clamp(4rem, 7vw, 6.5rem);
   position: relative;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5.5rem);
   align-items: center;
 }
 
@@ -558,97 +568,48 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
-  margin-top: 1.25rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4.4vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-espresso);
+  margin-top: 0;
   margin-bottom: 1.5rem;
-  line-height: 1.15;
+  line-height: 1.14;
 }
 
 .hero-description {
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
   color: var(--color-espresso-subtle);
-  margin-bottom: 2.25rem;
-  max-width: 580px;
-  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+  line-height: 1.7;
 }
 
 .hero-cta-group {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 2.75rem;
+  gap: 1.25rem;
+  margin-bottom: 0;
 }
 
-.hero-pill-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.85rem;
-  color: var(--color-espresso-muted);
-  font-weight: 500;
-}
-
-.status-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #2E7D32;
-  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
-  animation: pulse-green 2s infinite var(--ease-in-out);
-}
-
-@keyframes pulse-green {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.15); }
-}
-
-.hero-credentials-row {
-  display: flex;
-  align-items: center;
-  gap: 1.75rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--color-border-hairline);
-  width: 100%;
-}
-
-.credential-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.cred-number {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--color-espresso);
-  line-height: 1.2;
-}
-
-.cred-label {
-  font-size: 0.75rem;
-  color: var(--color-espresso-muted);
-  font-weight: 500;
-}
-
-.credential-divider {
-  width: 1px;
-  height: 28px;
-  background-color: var(--color-espresso-faint);
-  opacity: 0.4;
-}
-
-/* Video Block (Right of Hero) */
+/* Video Block (Right of Hero: Expansive, Clean Bezel, Authentic Craft Video) */
 .video-container {
   overflow: hidden;
   position: relative;
+  background-color: var(--color-bg-shell);
+  border: 1px solid var(--color-border-outer);
+  border-radius: var(--radius-outer);
+  padding: 8px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-mid) var(--ease-spring), box-shadow var(--duration-mid) var(--ease-out);
 }
 
 .video-inner {
   position: relative;
-  border-radius: var(--radius-inner);
+  border-radius: calc(var(--radius-outer) - 6px);
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 11;
   background-color: var(--color-espresso);
 }
 
@@ -657,102 +618,44 @@ button {
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
+/* Clean Centered Video Play Overlay — No red recording dot, no top pill, no text clutter */
 .video-overlay {
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.25rem;
-  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.65) 100%);
-  transition: opacity var(--duration-mid) var(--ease-out);
-}
-
-.video-info-pill {
-  align-self: flex-start;
-  display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.85rem;
-  background-color: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--radius-pill);
-  color: #FFFFFF;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-.rec-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #E53935;
-  animation: pulse-red 1.5s infinite;
-}
-
-@keyframes pulse-red {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.22);
+  transition: background-color var(--duration-mid) var(--ease-out), opacity var(--duration-mid) var(--ease-out);
+  pointer-events: none;
 }
 
 .video-play-btn {
-  align-self: center;
-  width: 64px;
-  height: 64px;
+  pointer-events: auto;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
-  background-color: rgba(250, 247, 242, 0.92);
+  background-color: rgba(255, 255, 255, 0.94);
   color: var(--color-espresso);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
   transition: transform var(--duration-fast) var(--ease-spring), background-color var(--duration-fast) var(--ease-out);
 }
 
 .video-play-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.94);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .video-play-btn:hover {
     transform: scale(1.08);
     background-color: #FFFFFF;
-  }
-}
-
-.video-footer-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.video-tag {
-  color: #FFFFFF;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
-
-.video-sound-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--duration-fast) var(--ease-out);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .video-sound-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -1398,30 +1301,125 @@ button {
   }
 }
 
-/* --- 13. SITE FOOTER --- */
+/* --- 13. SITE FOOTER (ADAPTED EXACTLY AS IN IMAGE 4 REFERENCE) --- */
 .site-footer {
-  border-top: 1px solid var(--color-border-hairline);
-  padding: 2.25rem 0;
-  background-color: var(--color-bg-base);
+  border-top: 1px solid rgba(40, 32, 26, 0.1);
+  padding: clamp(3.5rem, 6vw, 5rem) 0 2.5rem 0;
+  background-color: #EFE9E0; /* Warm stone neutral band, matching Image 4 */
+  margin-top: 2rem;
 }
 
-.footer-content {
+.footer-columns-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1.2fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: flex-start;
+}
+
+.footer-col-identity .footer-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--color-espresso);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.footer-col-identity .footer-col-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-espresso-subtle);
+  max-width: 440px;
+}
+
+.footer-col-label {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-espresso);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-contact-item {
+  font-size: 0.95rem;
+  color: var(--color-espresso-subtle);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a.footer-contact-item:hover {
+  color: var(--color-bronze);
+  text-decoration: underline;
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.social-circle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-espresso);
+  background-color: transparent;
+  transition: background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-spring);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .social-circle-btn:hover {
+    background-color: var(--color-espresso);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+}
+
+.social-circle-btn:active {
+  transform: scale(0.94);
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(40, 32, 26, 0.15);
+  margin: 3.5rem 0 1.75rem 0;
+}
+
+.footer-bottom-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.25rem;
-  font-size: 0.85rem;
+  gap: 1rem;
+  font-size: 0.88rem;
   color: var(--color-espresso-muted);
 }
 
-.footer-brand {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+.footer-bottom-link {
+  color: var(--color-espresso-muted);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-bottom-link:hover {
   color: var(--color-espresso);
-  margin-right: 0.75rem;
+  text-decoration: underline;
+}
+
+.footer-bottom-copy {
+  color: var(--color-espresso-muted);
 }
 
 /* --- 14. SONNER-INSPIRED TOAST NOTIFICATIONS --- */
@@ -1558,9 +1556,14 @@ button {
   .credential-divider {
     display: none;
   }
-  .footer-content {
+  .footer-columns-row {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .footer-bottom-row {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    gap: 0.85rem;
   }
   .toast-container {
     left: 1rem;
