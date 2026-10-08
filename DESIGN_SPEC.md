@@ -1,7 +1,7 @@
-# Especificación de Diseño y Arquitectura: Landing Page Carlos Alberto
+# Especificación de Diseño y Arquitectura: Landing Page Carlos Alberto de Basilio
 
 ## 1. Resumen de Entendimiento
-* **Cliente:** Carlos Alberto (Carlos Basilio), Arquitecto graduado en 2022 por la Universidad José Antonio Páez (San Diego, Valencia, Venezuela), residente actual en Madeira, Portugal.
+* **Cliente:** Carlos Alberto de Basilio (Carlos Basilio), Arquitecto graduado en 2022 por la Universidad José Antonio Páez (San Diego, Valencia, Venezuela), residente actual en Madeira, Portugal.
 * **Propósito:** Posicionarlo como un socio técnico de máxima precisión y ejecutor tangible tanto para estudios de arquitectura y constructoras como para clientes particulares exigentes.
 * **Público Objetivo:**
   1. Estudios de arquitectura y constructoras que requieren externalizar dibujo técnico CAD/BIM, modelado arquitectónico y maquetas físicas.

@@ -1,7 +1,7 @@
 /**
- * CARLOS ALBERTO — ARQUITETURA & RIGOR TÉCNICO
+ * CARLOS ALBERTO DE BASILIO — ARQUITETURA & RIGOR TÉCNICO
  * Modular Vanilla JavaScript Engine
- * Modules: i18n Dictionary, Sonner Toast System, Video Controls, Accordion, Mobile Drawer, Scroll Observer
+ * Modules: i18n Dictionary, Sonner Toast System, Video Controls, Privacy Modal, Accordion, Mobile Drawer, Scroll Observer
  */
 
 (function () {
@@ -102,8 +102,15 @@
       'footer.desc': 'Arquiteto graduado pela UJAP (2022). Supervisão e fiscalização técnica de obras na Madeira, modelação 3D e fabricação física em madeira e metal.',
       'footer.contactsLabel': 'Contactos',
       'footer.socialsLabel': 'Redes sociais',
-      'footer.privacy': 'Privacidade & Termos',
-      'footer.rights': 'Todos os direitos reservados.'
+      'footer.privacy': 'Política de Privacidade',
+      'footer.rights': 'Todos os direitos reservados.',
+
+      'privacy.title': 'Política de Privacidade',
+      'privacy.p1': 'Este website tem caráter exclusivamente informativo e de portfólio profissional de Carlos Alberto de Basilio.',
+      'privacy.item1': 'Sem Cookies de Rastreio: Não utilizamos cookies analíticos invasivos nem partilhamos dados com redes de publicidade.',
+      'privacy.item2': 'Contacto Profissional: Ao contactar por e-mail (carlosbasilio.arq@gmail.com), os seus dados serão utilizados estritamente para responder à sua consulta de serviços técnicos.',
+      'privacy.item3': 'Confidencialidade: Os planos, especificações e informações de obras partilhadas são tratados com sigilo profissional e rigor técnico.',
+      'privacy.foot': 'Para qualquer questão ou eliminação dos seus dados de contacto, envie mensagem para carlosbasilio.arq@gmail.com.'
     },
 
     es: {
@@ -197,8 +204,15 @@
       'footer.desc': 'Graduado en Arquitectura por la UJAP (2022). Supervisión y fiscalización técnica de obras en Madeira, modelado 3D y piezas en madera y metal.',
       'footer.contactsLabel': 'Contactos',
       'footer.socialsLabel': 'Redes sociales',
-      'footer.privacy': 'Política de privacidad',
-      'footer.rights': 'Todos los derechos reservados.'
+      'footer.privacy': 'Política de Privacidad',
+      'footer.rights': 'Todos los derechos reservados.',
+
+      'privacy.title': 'Política de Privacidad',
+      'privacy.p1': 'Este sitio web es un espacio de portafolio profesional y presentación técnica de Carlos Alberto de Basilio.',
+      'privacy.item1': 'Sin Cookies de Rastreo: No utilizamos cookies analíticas invasivas ni compartimos datos con redes publicitarias.',
+      'privacy.item2': 'Contacto Profesional: Al contactar por correo electrónico (carlosbasilio.arq@gmail.com), tus datos se utilizarán estrictamente para responder a tu consulta técnica.',
+      'privacy.item3': 'Confidencialidad: Los planos, modelos e información de obra compartidos se tratan bajo estricto secreto profesional.',
+      'privacy.foot': 'Para cualquier consulta o eliminación de tus datos de contacto, escribe a carlosbasilio.arq@gmail.com.'
     },
 
     en: {
@@ -293,7 +307,14 @@
       'footer.contactsLabel': 'Contacts',
       'footer.socialsLabel': 'Social media',
       'footer.privacy': 'Privacy Policy',
-      'footer.rights': 'All rights reserved.'
+      'footer.rights': 'All rights reserved.',
+
+      'privacy.title': 'Privacy Policy',
+      'privacy.p1': 'This website is a professional portfolio and technical showcase for Carlos Alberto de Basilio.',
+      'privacy.item1': 'Zero Tracking Cookies: We do not use invasive analytical cookies nor share browsing data with ad networks.',
+      'privacy.item2': 'Professional Inquiries: When contacting via email (carlosbasilio.arq@gmail.com), your details are strictly used to reply to your technical inquiry.',
+      'privacy.item3': 'Confidentiality: Drawings, models, and project specs shared with us are treated with strict professional discretion.',
+      'privacy.foot': 'For any questions or removal of your contact details, please write to carlosbasilio.arq@gmail.com.'
     }
   };
 
@@ -440,53 +461,103 @@
   }
 
   /* ==========================================================================
-     5. VIDEO CONTROLS & INTERACTION
+     5. VIDEO CONTROLS & INTERACTION (CLEAN DISAPPEAR ON PLAY)
      ========================================================================== */
   function initVideoPlayer() {
     const video = document.getElementById('hero-video');
     const playBtn = document.getElementById('video-play-toggle');
-    const soundBtn = document.getElementById('video-sound-toggle');
-    const overlay = document.getElementById('video-overlay');
+    const videoBox = document.getElementById('hero-video-box');
 
-    if (!video || !playBtn) return;
+    if (!video) return;
 
-    const playIcon = playBtn.querySelector('.icon-play');
-    const pauseIcon = playBtn.querySelector('.icon-pause');
+    function setPlayingState(isPlaying) {
+      if (videoBox) {
+        videoBox.classList.toggle('is-playing', isPlaying);
+      }
+      if (playBtn) {
+        playBtn.setAttribute('aria-label', isPlaying ? 'Pausar vídeo' : 'Reproduzir vídeo');
+      }
+    }
 
     function togglePlayback() {
       if (video.paused) {
         video.play().then(() => {
-          if (playIcon) playIcon.style.display = 'none';
-          if (pauseIcon) pauseIcon.style.display = 'block';
+          setPlayingState(true);
         }).catch(() => {
           // Auto-play prevention fallback
         });
       } else {
         video.pause();
-        if (playIcon) playIcon.style.display = 'block';
-        if (pauseIcon) pauseIcon.style.display = 'none';
+        setPlayingState(false);
       }
     }
 
-    playBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      togglePlayback();
-    });
-
-    video.addEventListener('click', togglePlayback);
-
-    if (soundBtn) {
-      soundBtn.addEventListener('click', (e) => {
+    if (playBtn) {
+      playBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        video.muted = !video.muted;
-        soundBtn.style.opacity = video.muted ? '0.5' : '1';
-        showToast(video.muted ? 'Som desligado' : 'Som ativado', 1500);
+        togglePlayback();
       });
     }
 
-    video.addEventListener('ended', () => {
-      if (playIcon) playIcon.style.display = 'block';
-      if (pauseIcon) pauseIcon.style.display = 'none';
+    video.addEventListener('click', () => {
+      togglePlayback();
+    });
+
+    video.addEventListener('play', () => setPlayingState(true));
+    video.addEventListener('pause', () => setPlayingState(false));
+    video.addEventListener('ended', () => setPlayingState(false));
+  }
+
+  /* ==========================================================================
+     6. PRIVACY POLICY MODAL (ACCESSIBLE NATIVE DIALOG)
+     ========================================================================== */
+  function initPrivacyModal() {
+    const modal = document.getElementById('privacy-modal');
+    const openBtn = document.getElementById('open-privacy-btn');
+    const closeBtn = document.getElementById('privacy-close-btn');
+
+    if (!modal) return;
+
+    function openModal() {
+      if (typeof modal.showModal === 'function') {
+        modal.showModal();
+      } else {
+        modal.setAttribute('open', '');
+      }
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      if (typeof modal.close === 'function') {
+        modal.close();
+      } else {
+        modal.removeAttribute('open');
+      }
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn) {
+      openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    modal.addEventListener('click', (e) => {
+      const rect = modal.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                          rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog || e.target === modal) {
+        closeModal();
+      }
+    });
+
+    modal.addEventListener('close', () => {
+      document.body.style.overflow = '';
     });
   }
 
@@ -606,6 +677,7 @@
     initI18n();
     initContactActions();
     initVideoPlayer();
+    initPrivacyModal();
     initFaqAccordion();
     initMobileMenu();
     initScrollReveal();

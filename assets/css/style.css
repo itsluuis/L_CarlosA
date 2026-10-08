@@ -169,16 +169,19 @@ button {
   margin-top: 3.5rem;
 }
 
-/* Section Header Structure */
+/* Section Header Structure — Centered & Expansive Canvas */
 .section-header {
-  max-width: 780px;
+  max-width: 980px;
   margin: 0 auto 3.5rem auto;
+  text-align: center;
 }
 
 .section-heading {
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-size: clamp(2.1rem, 3.8vw, 3.3rem);
   margin-top: 1rem;
   margin-bottom: 1.25rem;
+  text-wrap: balance;
+  line-height: 1.2;
 }
 
 .section-subheading {
@@ -186,6 +189,10 @@ button {
   color: var(--color-espresso-muted);
   font-weight: 400;
   line-height: 1.7;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: pretty;
 }
 
 /* Eyebrow Pill Badge */
@@ -366,11 +373,12 @@ button {
 
 .brand-name {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: clamp(0.78rem, 1.2vw, 0.92rem);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   color: var(--color-espresso);
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .brand-title {
@@ -621,7 +629,7 @@ button {
   cursor: pointer;
 }
 
-/* Clean Centered Video Play Overlay — No red recording dot, no top pill, no text clutter */
+/* Clean Centered Video Play Overlay — Disappears completely on play for unobstructed view */
 .video-overlay {
   position: absolute;
   inset: 0;
@@ -629,7 +637,13 @@ button {
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.22);
-  transition: background-color var(--duration-mid) var(--ease-out), opacity var(--duration-mid) var(--ease-out);
+  transition: opacity var(--duration-mid) var(--ease-out), visibility var(--duration-mid) var(--ease-out);
+  pointer-events: none;
+}
+
+.video-container.is-playing .video-overlay {
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
@@ -808,7 +822,7 @@ button {
 
 .service-checklist {
   list-style: none;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   margin-top: auto;
   display: flex;
   flex-direction: column;
@@ -830,49 +844,44 @@ button {
   font-weight: 700;
 }
 
-.service-foot {
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border-hairline);
-}
-
-.service-action-link {
-  display: inline-flex;
+/* Unified Single Services CTA Button */
+.services-unified-cta {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-espresso);
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .service-action-link:hover {
-    color: var(--color-bronze);
-  }
-  .service-action-link:hover svg {
-    transform: translate(2px, -2px);
-  }
-}
-
-.service-action-link svg {
-  transition: transform var(--duration-fast) var(--ease-spring);
-}
-
-/* Showcase Bento Grid */
+/* Showcase Bento Grid — Aligned, Balanced & Concentric */
 .showcase-bento-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   gap: 1.5rem;
+  align-items: stretch;
+}
+
+.bento-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-inner {
   border-radius: var(--radius-inner);
   overflow: hidden;
   position: relative;
-  aspect-ratio: 16 / 10;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
   background-color: var(--color-espresso);
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1408,18 +1417,134 @@ a.footer-contact-item:hover {
   color: var(--color-espresso-muted);
 }
 
-.footer-bottom-link {
+.footer-bottom-link,
+.footer-bottom-link-btn {
   color: var(--color-espresso-muted);
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.footer-bottom-link:hover {
+.footer-bottom-link:hover,
+.footer-bottom-link-btn:hover {
   color: var(--color-espresso);
-  text-decoration: underline;
 }
 
 .footer-bottom-copy {
   color: var(--color-espresso-muted);
+}
+
+/* --- PRIVACY POLICY MODAL (ACCESSIBLE, NON-INTRUSIVE) --- */
+.privacy-modal {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 600px;
+  width: calc(100% - 2rem);
+  margin: auto;
+  border-radius: var(--radius-outer);
+  box-shadow: var(--shadow-elevated);
+}
+
+.privacy-modal::backdrop {
+  background: rgba(40, 32, 26, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.privacy-modal-box {
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-outer);
+  border-radius: var(--radius-outer);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--color-espresso-subtle);
+}
+
+.privacy-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.privacy-modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  color: var(--color-espresso);
+  margin: 0;
+}
+
+.privacy-modal-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-espresso);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-hairline);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-spring);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .privacy-modal-close:hover {
+    background-color: var(--color-border-outer);
+    transform: scale(1.06);
+  }
+}
+
+.privacy-modal-body p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 1.15rem;
+}
+
+.privacy-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.35rem;
+  padding-left: 0;
+}
+
+.privacy-list li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--color-espresso-subtle);
+}
+
+.privacy-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-bronze);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.privacy-list li strong {
+  color: var(--color-espresso);
+}
+
+.privacy-modal-foot {
+  font-size: 0.86rem !important;
+  color: var(--color-espresso-muted) !important;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--color-border-hairline);
+  margin-bottom: 0 !important;
 }
 
 /* --- 14. SONNER-INSPIRED TOAST NOTIFICATIONS --- */
@@ -1547,6 +1672,9 @@ a.footer-contact-item:hover {
   }
   .showcase-bento-grid {
     grid-template-columns: 1fr;
+  }
+  .bento-inner {
+    min-height: 280px;
   }
   .hero-credentials-row {
     flex-direction: column;
