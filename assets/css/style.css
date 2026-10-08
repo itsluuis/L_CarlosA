@@ -1623,6 +1623,492 @@ a.footer-contact-item:hover {
   }
 }
 
+/* --- 15.1. BLUEPRINT WORKS SLIDER SECTION (PROJECTS PORTFOLIO) --- */
+.blueprint-filters-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2.25rem;
+}
+
+.filter-pill {
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-outer);
+  color: var(--color-espresso-subtle);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.filter-pill:hover {
+  background-color: var(--color-bg-shell);
+  color: var(--color-espresso);
+  border-color: var(--color-bronze);
+  transform: translateY(-1px);
+}
+
+.filter-pill.active {
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  border-color: var(--color-espresso);
+  box-shadow: 0 4px 12px rgba(40, 32, 26, 0.18);
+}
+
+/* Master Slider Container */
+.blueprint-slider-container {
+  background-color: var(--color-bg-shell);
+  border-radius: var(--radius-outer);
+}
+
+.blueprint-slider-inner {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-inner);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.blueprint-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  background-color: #F8F6F1;
+  overflow: hidden;
+}
+
+/* Blueprint Slide Layout */
+.blueprint-slide {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  align-items: stretch;
+  min-height: 520px;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-spring);
+  transform: translateX(20px);
+}
+
+.blueprint-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  transform: translateX(0);
+}
+
+/* Left Canvas: Technical Drawing Viewer */
+.blueprint-canvas-box {
+  position: relative;
+  background-color: #FFFFFF;
+  border-right: 1px solid var(--color-border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.blueprint-canvas-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(40, 32, 26, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(40, 32, 26, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.blueprint-img {
+  max-width: 100%;
+  max-height: 480px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 4px 16px rgba(40, 32, 26, 0.06);
+  border: 1px solid var(--color-border-hairline);
+  transition: transform var(--duration-mid) var(--ease-spring);
+}
+
+.blueprint-canvas-box:hover .blueprint-img {
+  transform: scale(1.02);
+}
+
+.blueprint-zoom-hint {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-espresso);
+  box-shadow: var(--shadow-subtle);
+  pointer-events: none;
+}
+
+/* Right Detail Column */
+.blueprint-details-column {
+  padding: clamp(2rem, 3.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-bg-card);
+}
+
+.blueprint-meta-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.sheet-code-pill {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+}
+
+.sheet-category-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-bronze);
+  background-color: var(--color-bronze-bg);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.sheet-title {
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  color: var(--color-espresso);
+  margin-bottom: 0.85rem;
+  line-height: 1.25;
+}
+
+.sheet-description {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-espresso-subtle);
+  margin-bottom: 1.75rem;
+}
+
+.sheet-spec-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.25rem;
+  background-color: var(--color-bg-shell);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-hairline);
+  margin-bottom: 1.75rem;
+}
+
+.sheet-spec-item {
+  font-size: 0.85rem;
+  color: var(--color-espresso-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sheet-spec-item strong {
+  color: var(--color-espresso);
+  font-weight: 600;
+}
+
+.sheet-actions-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-blueprint-expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.35rem;
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(40, 32, 26, 0.18);
+  transition: transform var(--duration-fast) var(--ease-spring), background-color var(--duration-fast) var(--ease-out);
+}
+
+.btn-blueprint-expand:hover {
+  background-color: #1A1410;
+  transform: translateY(-2px);
+}
+
+/* Slider Controls Bar */
+.blueprint-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background-color: var(--color-bg-shell);
+  border-top: 1px solid var(--color-border-outer);
+}
+
+.blueprint-counter-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-family: var(--font-serif);
+}
+
+.counter-current {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-espresso);
+}
+
+.counter-sep {
+  font-size: 1.1rem;
+  color: var(--color-espresso-faint);
+}
+
+.counter-total {
+  font-size: 1.1rem;
+  color: var(--color-espresso-muted);
+}
+
+.blueprint-dots-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  max-width: 50%;
+  padding: 0.25rem 0.5rem;
+}
+
+.blueprint-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-espresso-faint);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-spring);
+  padding: 0;
+}
+
+.blueprint-dot.active {
+  width: 28px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-espresso);
+}
+
+.blueprint-nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.blueprint-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-outer);
+  color: var(--color-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--duration-fast) var(--ease-spring), background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+}
+
+.blueprint-nav-btn:hover {
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  border-color: var(--color-espresso);
+  transform: scale(1.05);
+}
+
+.blueprint-nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Context Grid */
+.blueprint-context-inner {
+  padding: 1.75rem 2rem;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-inner);
+}
+
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.context-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.context-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-bronze);
+}
+
+.context-value {
+  font-size: 0.95rem;
+  color: var(--color-espresso);
+  font-weight: 600;
+}
+
+/* Fullscreen Lightbox Modal */
+.blueprint-lightbox {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 96vw;
+  width: 1400px;
+  margin: auto;
+  border-radius: var(--radius-outer);
+  box-shadow: var(--shadow-elevated);
+}
+
+.blueprint-lightbox::backdrop {
+  background: rgba(20, 16, 13, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.lightbox-box {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-outer);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: 94vh;
+}
+
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background-color: var(--color-bg-shell);
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.lightbox-header-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.lightbox-code {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+}
+
+.lightbox-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--color-espresso);
+  margin: 0;
+}
+
+.lightbox-close-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-outer);
+  color: var(--color-espresso);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-spring);
+}
+
+.lightbox-close-btn:hover {
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  transform: scale(1.06);
+}
+
+.lightbox-body {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F7F5F0;
+  overflow: auto;
+  max-height: calc(94vh - 160px);
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: calc(94vh - 200px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 8px 32px rgba(40, 32, 26, 0.12);
+  border: 1px solid var(--color-border-outer);
+  background-color: #FFFFFF;
+}
+
+.lightbox-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--color-bg-shell);
+  border-top: 1px solid var(--color-border-hairline);
+}
+
+.lightbox-desc {
+  font-size: 0.9rem;
+  color: var(--color-espresso-subtle);
+  max-width: 75%;
+}
+
+.lightbox-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
 /* --- 16. RESPONSIVE BREAKPOINTS (MOBILE-NATIVE OPTIMIZATIONS) --- */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -1657,6 +2143,17 @@ a.footer-contact-item:hover {
   }
   .social-pills-row {
     justify-content: center;
+  }
+  .blueprint-slide {
+    grid-template-columns: 1fr;
+  }
+  .blueprint-canvas-box {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-hairline);
+    min-height: 380px;
+  }
+  .context-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1714,5 +2211,37 @@ a.footer-contact-item:hover {
   .email-display-pill {
     width: 100%;
     justify-content: center;
+  }
+  .blueprint-viewport {
+    min-height: auto;
+  }
+  .blueprint-slide {
+    min-height: auto;
+  }
+  .blueprint-canvas-box {
+    min-height: 240px;
+    padding: 1rem;
+  }
+  .blueprint-details-column {
+    padding: 1.5rem 1.25rem;
+  }
+  .context-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .blueprint-controls-bar {
+    padding: 1rem 1.25rem;
+  }
+  .blueprint-dots-strip {
+    display: none;
+  }
+  .lightbox-desc {
+    display: none;
+  }
+  .lightbox-header {
+    padding: 1rem 1.25rem;
+  }
+  .lightbox-footer {
+    padding: 0.75rem 1.25rem;
   }
 }

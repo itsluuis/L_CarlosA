@@ -15,6 +15,24 @@
       'nav.role': 'ARQUITETURA & OFÍCIO',
       'nav.problem': 'O Problema',
       'nav.services': 'Serviços',
+      'nav.projects': 'Trabalhos',
+      'projects.badge': 'Portfólio & Desenhos Técnicos',
+      'projects.title': 'Trabalhos & Planimetria Executiva',
+      'projects.subtitle': 'Do planeamento urbano ao pormenor construtivo milimétrico: documentação executiva do Centro Cultural Artístico desenvolvida por Carlos Alberto de Basilio.',
+      'projects.filterAll': 'Todos (12)',
+      'projects.filterArch': 'Plantas de Arquitetura',
+      'projects.filterElev': 'Alçados & Cortes',
+      'projects.filterDetails': 'Pormenores & Tridilosa',
+      'projects.filterStruct': 'Engenharia & Estrutura',
+      'projects.ctxProjectLabel': 'Projeto de Tese',
+      'projects.ctxAreaLabel': 'Área de Intervenção',
+      'projects.ctxScopeLabel': 'Âmbito Técnico',
+      'projects.ctxSoftLabel': 'Software & Rigor',
+      'projects.zoomHint': 'Clique para ampliar',
+      'projects.expandBtn': 'Ampliar Plano',
+      'projects.scale': 'Escala',
+      'projects.date': 'Data',
+      'projects.author': 'Autor',
       'nav.method': 'Metodologia',
       'nav.timeline': 'Trajetória',
       'nav.faq': 'Dúvidas',
@@ -117,6 +135,24 @@
       'nav.role': 'ARQUITECTURA & OFICIO',
       'nav.problem': 'El Problema',
       'nav.services': 'Servicios',
+      'nav.projects': 'Trabajos',
+      'projects.badge': 'Portafolio & Planos Técnicos',
+      'projects.title': 'Trabajos & Planimetría Ejecutiva',
+      'projects.subtitle': 'De la conceptualización urbana al detalle constructivo milimétrico: documentación ejecutiva del Centro Cultural Artístico desarrollada por Carlos Alberto de Basilio.',
+      'projects.filterAll': 'Todos (12)',
+      'projects.filterArch': 'Plantas de Arquitectura',
+      'projects.filterElev': 'Fachadas & Cortes',
+      'projects.filterDetails': 'Detalles & Tridilosa',
+      'projects.filterStruct': 'Ingeniería & Estructura',
+      'projects.ctxProjectLabel': 'Proyecto de Grado',
+      'projects.ctxAreaLabel': 'Área de Intervención',
+      'projects.ctxScopeLabel': 'Ámbito Técnico',
+      'projects.ctxSoftLabel': 'Software & Rigor',
+      'projects.zoomHint': 'Clic para ampliar',
+      'projects.expandBtn': 'Ampliar Plano',
+      'projects.scale': 'Escala',
+      'projects.date': 'Fecha',
+      'projects.author': 'Autor',
       'nav.method': 'Metodología',
       'nav.timeline': 'Trayectoria',
       'nav.faq': 'Dudas',
@@ -219,6 +255,24 @@
       'nav.role': 'ARCHITECTURE & CRAFT',
       'nav.problem': 'The Challenge',
       'nav.services': 'Services',
+      'nav.projects': 'Projects',
+      'projects.badge': 'Portfolio & Executive Blueprints',
+      'projects.title': 'Works & Executive Blueprints',
+      'projects.subtitle': 'From urban planning to millimeter-accurate detailing: complete executive documentation for the Arts Cultural Center drafted by Carlos Alberto de Basilio.',
+      'projects.filterAll': 'All (12)',
+      'projects.filterArch': 'Floor Plans',
+      'projects.filterElev': 'Elevations & Sections',
+      'projects.filterDetails': 'Details & Spatial Truss',
+      'projects.filterStruct': 'Structural Engineering',
+      'projects.ctxProjectLabel': 'Thesis Project',
+      'projects.ctxAreaLabel': 'Built Area',
+      'projects.ctxScopeLabel': 'Technical Scope',
+      'projects.ctxSoftLabel': 'Software & Drafting',
+      'projects.zoomHint': 'Click to enlarge',
+      'projects.expandBtn': 'Enlarge Sheet',
+      'projects.scale': 'Scale',
+      'projects.date': 'Date',
+      'projects.author': 'Author',
       'nav.method': 'Methodology',
       'nav.timeline': 'Milestones',
       'nav.faq': 'FAQ',
@@ -354,6 +408,11 @@
         el.textContent = translations[lang][key];
       }
     });
+
+    // Re-render active blueprint slide to update localized title/description
+    if (typeof renderBlueprintSlide === 'function') {
+      renderBlueprintSlide(currentBlueprintIndex);
+    }
   }
 
   function initI18n() {
@@ -506,6 +565,443 @@
     video.addEventListener('play', () => setPlayingState(true));
     video.addEventListener('pause', () => setPlayingState(false));
     video.addEventListener('ended', () => setPlayingState(false));
+  }
+
+
+  /* ==========================================================================
+     5.1. ARCHITECTURAL BLUEPRINT WORKS SLIDER & LIGHTBOX ENGINE
+     ========================================================================== */
+  const blueprintSlides = [
+    {
+      code: 'A-1',
+      category: 'urbanismo',
+      scale: '1:150',
+      date: '14/07/2021',
+      title_pt: 'Implantação & Enquadramento Urbano',
+      title_es: 'Implantación & Encuadre Urbano',
+      title_en: 'Site Plan & Urban Integration',
+      desc_pt: 'Integração volumétrica do Centro Cultural na malha histórica entre a Calle Libertad e a Escola Arturo Michelena.',
+      desc_es: 'Integración volumétrica del Centro Cultural en la trama histórica entre la Calle Libertad y la Escuela Arturo Michelena.',
+      desc_en: 'Volumetric integration of the Arts Cultural Center within the historic grid along Calle Libertad.',
+      image: 'assets/images/blueprints/plano-a1-implantacion.webp'
+    },
+    {
+      code: 'A-2',
+      category: 'arquitetura',
+      scale: '1:100',
+      date: '14/07/2021',
+      title_pt: 'Planta Baixa Executiva (+0,30 m)',
+      title_es: 'Planta Baja Ejecutiva (+0,30 m)',
+      title_en: 'Executive Ground Floor Plan (+0.30 m)',
+      desc_pt: 'Distribuição programática: receção, salões de música, pátio central ajardinado, auditório, café e zonas técnicas.',
+      desc_es: 'Distribución programática: recepción, salones de música, patio central ajardinado, auditorio, café y áreas técnicas.',
+      desc_en: 'Programmatic layout: reception lobby, music halls, landscaped central courtyard, auditorium, café, and services.',
+      image: 'assets/images/blueprints/plano-a2-planta-baja.webp'
+    },
+    {
+      code: 'A-3',
+      category: 'arquitetura',
+      scale: '1:100',
+      date: '14/07/2021',
+      title_pt: 'Planta Nível 1 (+4,00 m)',
+      title_es: 'Planta Nivel 1 (+4,00 m)',
+      title_en: 'Level 1 Floor Plan (+4.00 m)',
+      desc_pt: 'Módulo de salas de artes plásticas, setor administrativo, biblioteca e circulação periférica sobre o pátio.',
+      desc_es: 'Módulo de talleres de artes plásticas, sector administrativo, biblioteca y circulación perimetral sobre el patio.',
+      desc_en: 'Fine arts studio module, administrative suite, library, and perimeter circulation overlooking the courtyard.',
+      image: 'assets/images/blueprints/plano-a3-planta-nivel-1.webp'
+    },
+    {
+      code: 'A-4',
+      category: 'arquitetura',
+      scale: '1:100',
+      date: '14/07/2021',
+      title_pt: 'Planta Nível 2 (+8,00 m)',
+      title_es: 'Planta Nivel 2 (+8,00 m)',
+      title_en: 'Level 2 Floor Plan (+8.00 m)',
+      desc_pt: 'Piso superior com galeria de exposições, amplos terraços ao ar livre, quiosque de café e salão polivalente.',
+      desc_es: 'Piso superior con galería de exposiciones, amplias terrazas al aire libre, kiosco de café y salón de usos múltiples.',
+      desc_en: 'Top level featuring exhibition art gallery, spacious open-air terraces, coffee lounge, and multi-purpose hall.',
+      image: 'assets/images/blueprints/plano-a4-planta-nivel-2.webp'
+    },
+    {
+      code: 'A-5',
+      category: 'fachadas',
+      scale: '1:75',
+      date: '14/07/2021',
+      title_pt: 'Alçados Principais: Fachadas Este & Norte',
+      title_es: 'Fachadas Principales: Alzados Este & Norte',
+      title_en: 'Main Elevations: East & North Facades',
+      desc_pt: 'Estudo de alçados urbanos com pele paramétrica de alumínio ranhurado, ritmo de vãos e revestimento mineral.',
+      desc_es: 'Estudio de fachadas urbanas con piel de aluminio ranurado, ritmo de vanos y revestimiento mineral blanco.',
+      desc_en: 'Urban elevations featuring custom grooved aluminum sun-shading skin, window rhythms, and mineral plaster.',
+      image: 'assets/images/blueprints/plano-a5-fachadas-este-norte.webp'
+    },
+    {
+      code: 'A-6',
+      category: 'fachadas',
+      scale: '1:75',
+      date: '14/07/2021',
+      title_pt: 'Alçados Laterais: Fachadas Oeste & Sul',
+      title_es: 'Fachadas Laterales: Alzados Oeste & Sur',
+      title_en: 'Side Elevations: West & South Facades',
+      desc_pt: 'Fachadas de transição urbana com grelhas de ventilação natural, controlo solar e caixilharias metálicas.',
+      desc_es: 'Fachadas de transición urbana con rejillas de ventilación natural, control solar y carpinterías metálicas.',
+      desc_en: 'Transition elevations with natural ventilation louvers, solar control, and industrial metal window framing.',
+      image: 'assets/images/blueprints/plano-a6-fachadas-oeste-sur.webp'
+    },
+    {
+      code: 'A-7',
+      category: 'fachadas',
+      scale: '1:100',
+      date: '14/07/2021',
+      title_pt: 'Cortes Gerais Longitudinais A-A\' & B-B\'',
+      title_es: 'Cortes Generales Longitudinales A-A\' & B-B\'',
+      title_en: 'Building Sections A-A\' & B-B\'',
+      desc_pt: 'Secções construtivas ilustrando o pé-direito duplo, a treliça espacial tridilosa sobre o pátio e iluminação zenital.',
+      desc_es: 'Secciones constructivas ilustrando la doble altura, la estructura tridilosa sobre el patio e iluminación cenital.',
+      desc_en: 'Cross-sections illustrating double-height volumes, spatial truss (tridilosa) roof over courtyard, and skylights.',
+      image: 'assets/images/blueprints/plano-a7-cortes-generales.webp'
+    },
+    {
+      code: 'A-8',
+      category: 'arquitetura',
+      scale: '1:150',
+      date: '14/07/2021',
+      title_pt: 'Planta de Coberturas & Drenagem',
+      title_es: 'Planta de Cubiertas & Drenaje',
+      title_en: 'Roof Plan & Stormwater Drainage',
+      desc_pt: 'Desenho executivo da cobertura metálica em tridilosa, claraboias de iluminação zenital e cálculo de caleiras.',
+      desc_es: 'Plano ejecutivo de cubierta metálica en tridilosa, claraboyas de luz cenital y pendientes de desagüe pluvial.',
+      desc_en: 'Executive drawing of metal spatial roof truss, zenithal skylights, and stormwater collection grading.',
+      image: 'assets/images/blueprints/plano-a8-planta-techo.webp'
+    },
+    {
+      code: 'A-9',
+      category: 'pormenores',
+      scale: 'Indicadas (1:10 / 1:50)',
+      date: '14/07/2021',
+      title_pt: 'Pormenores Construtivos & Tridilosa',
+      title_es: 'Detalles Constructivos & Tridilosa',
+      title_en: 'Construction Detailing & Spatial Truss',
+      desc_pt: 'Detalhes de fixação da pele de alumínio, nó espacial da tridilosa metálica, isolamento acústico em cortiça e caixilhos.',
+      desc_es: 'Detalles de anclaje de piel de aluminio, nudo espacial de tridilosa metálica, aislamiento de corcho y remates.',
+      desc_en: 'Assembly details for aluminum facade skin, spatial truss node connection, cork acoustic paneling, and sills.',
+      image: 'assets/images/blueprints/plano-a9-detalhes-construtivos.webp'
+    },
+    {
+      code: 'A-10',
+      category: 'pormenores',
+      scale: 'Indicada',
+      date: '14/07/2021',
+      title_pt: 'Núcleos de Circulação & Elevadores',
+      title_es: 'Núcleos de Circulación & Ascensores',
+      title_en: 'Vertical Circulation & Elevator Cores',
+      desc_pt: 'Secções técnicas e axadrezados tridimensionais dos ascensores hidráulicos e caixas de escada de emergência.',
+      desc_es: 'Secciones técnicas y axonométricas de ascensores hidráulicos y cajas de escalera de evacuación.',
+      desc_en: 'Technical vertical sections and axonometrics of hydraulic elevators and fire egress stairwells.',
+      image: 'assets/images/blueprints/plano-a10-circulacion-vertical.webp'
+    },
+    {
+      code: 'E-1',
+      category: 'estruturas',
+      scale: '1:100',
+      date: '14/07/2021',
+      title_pt: 'Engenharia de Fundações & Sapatas',
+      title_es: 'Ingeniería de Fundaciones & Zapatas',
+      title_en: 'Structural Foundation & Footings',
+      desc_pt: 'Planta estrutural de fundações com dimensionamento de sapatas isoladas em betão armado, pedestais e vigas de travamento.',
+      desc_es: 'Plano estructural de fundaciones con dimensionamiento de zapatas aisladas en concreto armado y vigas de riostra.',
+      desc_en: 'Structural foundation layout with reinforced concrete spread footings, pedestals, and seismic tie beams.',
+      image: 'assets/images/blueprints/plano-e1-fundaciones.webp'
+    },
+    {
+      code: 'E-2',
+      category: 'estruturas',
+      scale: '1:100',
+      date: '14/07/2021',
+      title_pt: 'Estrutura do Nível 1 & Lajes Nervuradas',
+      title_es: 'Estructura Nivel 1 & Losas Nervadas',
+      title_en: 'Level 1 Structural Framing & Ribbed Slabs',
+      desc_pt: 'Planta de cofragem e cálculo de lajes nervuradas unidirecionais em betão armado e pórticos sismorresistentes.',
+      desc_es: 'Plano de encofrado y cálculo de losas nervadas unidireccionales en concreto armado y pórticos sismorresistentes.',
+      desc_en: 'Formwork and structural design of one-way reinforced concrete ribbed slabs and lateral-resisting frames.',
+      image: 'assets/images/blueprints/plano-e2-estructura-nivel-1.webp'
+    }
+  ];
+
+  let currentBlueprintIndex = 0;
+  let activeFilter = 'all';
+  let filteredSlides = [...blueprintSlides];
+
+  function getLocalizedText(obj, prefix) {
+    if (currentLang === 'es') return obj[prefix + '_es'] || obj[prefix + '_pt'];
+    if (currentLang === 'en') return obj[prefix + '_en'] || obj[prefix + '_pt'];
+    return obj[prefix + '_pt'];
+  }
+
+  function getCategoryLabel(cat) {
+    const map = {
+      all: currentLang === 'es' ? 'Todos' : currentLang === 'en' ? 'All' : 'Todos',
+      arquitetura: currentLang === 'es' ? 'Arquitectura' : currentLang === 'en' ? 'Architecture' : 'Arquitetura',
+      fachadas: currentLang === 'es' ? 'Fachadas & Cortes' : currentLang === 'en' ? 'Elevations' : 'Alçados & Cortes',
+      pormenores: currentLang === 'es' ? 'Detalles Construtivos' : currentLang === 'en' ? 'Details' : 'Pormenores',
+      estruturas: currentLang === 'es' ? 'Estructura & Cálculo' : currentLang === 'en' ? 'Structures' : 'Estruturas',
+      urbanismo: currentLang === 'es' ? 'Urbanismo' : currentLang === 'en' ? 'Urban Planning' : 'Urbanismo'
+    };
+    return map[cat] || cat;
+  }
+
+  function renderBlueprintSlide(index) {
+    const track = document.getElementById('blueprint-track');
+    const counterCurrent = document.getElementById('blueprint-current');
+    const counterTotal = document.getElementById('blueprint-total');
+    const dotsContainer = document.getElementById('blueprint-dots');
+
+    if (!track || filteredSlides.length === 0) return;
+
+    if (index < 0) index = filteredSlides.length - 1;
+    if (index >= filteredSlides.length) index = 0;
+    currentBlueprintIndex = index;
+
+    const item = filteredSlides[currentBlueprintIndex];
+    const title = getLocalizedText(item, 'title');
+    const desc = getLocalizedText(item, 'desc');
+    const zoomText = translations[currentLang]['projects.zoomHint'] || 'Clique para ampliar';
+    const expandBtnText = translations[currentLang]['projects.expandBtn'] || 'Ampliar Plano';
+    const scaleLabel = translations[currentLang]['projects.scale'] || 'Escala';
+    const dateLabel = translations[currentLang]['projects.date'] || 'Data';
+    const authorLabel = translations[currentLang]['projects.author'] || 'Autor';
+
+    track.innerHTML = `
+      <article class="blueprint-slide active" aria-roledescription="slide" aria-label="${item.code} - ${title}">
+        <!-- Left Visual Box -->
+        <div class="blueprint-canvas-box" id="blueprint-canvas-trigger" role="button" tabindex="0" aria-label="${expandBtnText}: ${item.code}">
+          <div class="blueprint-zoom-hint" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <line x1="11" y1="8" x2="11" y2="14"/>
+              <line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+            <span>${zoomText}</span>
+          </div>
+          <img 
+            src="${item.image}" 
+            alt="Plano arquitetónico ${item.code} — ${title}" 
+            class="blueprint-img"
+            loading="eager"
+            id="active-blueprint-img">
+        </div>
+
+        <!-- Right Specifications Column -->
+        <div class="blueprint-details-column">
+          <div>
+            <div class="blueprint-meta-header">
+              <span class="sheet-code-pill">${item.code}</span>
+              <span class="sheet-category-pill">${getCategoryLabel(item.category)}</span>
+            </div>
+
+            <h3 class="sheet-title">${title}</h3>
+            <p class="sheet-description">${desc}</p>
+
+            <ul class="sheet-spec-list">
+              <li class="sheet-spec-item">
+                <span>${scaleLabel}:</span>
+                <strong>${item.scale}</strong>
+              </li>
+              <li class="sheet-spec-item">
+                <span>${dateLabel}:</span>
+                <strong>${item.date}</strong>
+              </li>
+              <li class="sheet-spec-item">
+                <span>${authorLabel}:</span>
+                <strong>Carlos Alberto de Basilio</strong>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sheet-actions-row">
+            <button type="button" class="btn-blueprint-expand" id="btn-blueprint-modal" aria-label="${expandBtnText}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+              </svg>
+              <span>${expandBtnText}</span>
+            </button>
+          </div>
+        </div>
+      </article>
+    `;
+
+    // Wire click on canvas & button to open lightbox
+    const canvas = document.getElementById('blueprint-canvas-trigger');
+    const expandBtn = document.getElementById('btn-blueprint-modal');
+    if (canvas) canvas.addEventListener('click', openBlueprintLightbox);
+    if (canvas) canvas.addEventListener('keydown', (e) => { if (e.key === 'Enter') openBlueprintLightbox(); });
+    if (expandBtn) expandBtn.addEventListener('click', openBlueprintLightbox);
+
+    // Update Counter
+    if (counterCurrent) counterCurrent.textContent = String(currentBlueprintIndex + 1).padStart(2, '0');
+    if (counterTotal) counterTotal.textContent = String(filteredSlides.length).padStart(2, '0');
+
+    // Update Dots
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      filteredSlides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `blueprint-dot ${idx === currentBlueprintIndex ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Ir para a prancha ${idx + 1}`);
+        dot.addEventListener('click', () => renderBlueprintSlide(idx));
+        dotsContainer.appendChild(dot);
+      });
+    }
+  }
+
+  function openBlueprintLightbox() {
+    const lightbox = document.getElementById('blueprint-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCode = document.getElementById('lightbox-code');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+
+    if (!lightbox || filteredSlides.length === 0) return;
+
+    const item = filteredSlides[currentBlueprintIndex];
+    const title = getLocalizedText(item, 'title');
+    const desc = getLocalizedText(item, 'desc');
+
+    if (lightboxImg) {
+      lightboxImg.src = item.image;
+      lightboxImg.alt = `${item.code} — ${title}`;
+    }
+    if (lightboxCode) lightboxCode.textContent = item.code;
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxDesc) lightboxDesc.textContent = desc;
+
+    if (typeof lightbox.showModal === 'function') {
+      lightbox.showModal();
+    } else {
+      lightbox.setAttribute('open', '');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBlueprintLightbox() {
+    const lightbox = document.getElementById('blueprint-lightbox');
+    if (!lightbox) return;
+    if (typeof lightbox.close === 'function') {
+      lightbox.close();
+    } else {
+      lightbox.removeAttribute('open');
+    }
+    document.body.style.overflow = '';
+  }
+
+  function initBlueprintSlider() {
+    const prevBtn = document.getElementById('blueprint-prev');
+    const nextBtn = document.getElementById('blueprint-next');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const lightbox = document.getElementById('blueprint-lightbox');
+    const filterPills = document.querySelectorAll('.filter-pill');
+
+    if (!document.getElementById('blueprint-viewport')) return;
+
+    // Filter clicks
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => {
+          p.classList.remove('active');
+          p.setAttribute('aria-selected', 'false');
+        });
+        pill.classList.add('active');
+        pill.setAttribute('aria-selected', 'true');
+
+        activeFilter = pill.getAttribute('data-filter');
+        if (activeFilter === 'all') {
+          filteredSlides = [...blueprintSlides];
+        } else {
+          filteredSlides = blueprintSlides.filter(s => s.category === activeFilter);
+        }
+        renderBlueprintSlide(0);
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        renderBlueprintSlide(currentBlueprintIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        renderBlueprintSlide(currentBlueprintIndex + 1);
+      });
+    }
+
+    // Lightbox Controls
+    if (lightboxClose) lightboxClose.addEventListener('click', closeBlueprintLightbox);
+
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener('click', () => {
+        renderBlueprintSlide(currentBlueprintIndex - 1);
+        openBlueprintLightbox();
+      });
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener('click', () => {
+        renderBlueprintSlide(currentBlueprintIndex + 1);
+        openBlueprintLightbox();
+      });
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeBlueprintLightbox();
+      });
+      lightbox.addEventListener('close', () => {
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (lightbox && lightbox.open) {
+        if (e.key === 'ArrowLeft') {
+          renderBlueprintSlide(currentBlueprintIndex - 1);
+          openBlueprintLightbox();
+        } else if (e.key === 'ArrowRight') {
+          renderBlueprintSlide(currentBlueprintIndex + 1);
+          openBlueprintLightbox();
+        } else if (e.key === 'Escape') {
+          closeBlueprintLightbox();
+        }
+      }
+    });
+
+    // Touch Swipe support on viewport
+    const viewport = document.getElementById('blueprint-viewport');
+    if (viewport) {
+      let touchStartX = 0;
+      viewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) renderBlueprintSlide(currentBlueprintIndex + 1);
+          else renderBlueprintSlide(currentBlueprintIndex - 1);
+        }
+      }, { passive: true });
+    }
+
+    // Initial render
+    renderBlueprintSlide(0);
   }
 
   /* ==========================================================================
@@ -677,6 +1173,7 @@
     initI18n();
     initContactActions();
     initVideoPlayer();
+    initBlueprintSlider();
     initPrivacyModal();
     initFaqAccordion();
     initMobileMenu();

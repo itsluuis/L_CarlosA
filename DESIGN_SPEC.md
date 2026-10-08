@@ -34,27 +34,36 @@
 
 ---
 
-## 4. Estructura de Secciones (Fiel al Wireframe de Referencia)
+## 4. Estructura de Secciones (Flujo Narrativo Optimizado)
 
-1. **Header / Navbar:** Logo `CARLOS ALBERTO · ARQ`, navegación con enlaces suaves, selector `PT | ES | EN`, y botón `Contactar`.
+1. **Header / Navbar:** Logo `CARLOS ALBERTO DE BASILIO · ARQ`, navegación con enlaces suaves (`O Problema`, `Serviços`, `Trabalhos`, `Metodologia`, `Trajetória`, `Dúvidas`), selector `PT | ES | EN`, y botón `Contactar`.
 2. **Hero Section:** 
-   - Columna izquierda: Badge de disciplina, Título de transformación, Subtítulo específico de cómo lo logra sin frases vacías, botón `Contactar`.
-   - Columna derecha: Reproductor / Frame de vídeo cinemático arquitectónico con botón interactivo.
+   - Columna izquierda: Título de transformación, subtítulo específico, botón `Contactar`.
+   - Columna derecha: Reproductor / Frame de vídeo cinemático con botón interactivo que desaparece al reproducir.
 3. **Sección del Problema:** 
-   - Titular empático con la sobrecarga de estudios y dudas constructivas.
-   - 3 tarjetas con puntos de dolor concretos (cuellos de botella en planos ejecutivos, errores en obra por falta de rigor, desconexión entre diseño digital y piezas físicas).
-   - Imagen arquitectónica técnica referente.
+   - Titular empático centrado y de amplio ancho.
+   - 3 tarjetas con puntos de dolor concretos y encuadre visual técnico.
 4. **Sección de la Solución y Servicios:** 
-   - 3 bloques de servicio claros: Planimetría y Documentación Técnica, Modelado y Visualización Arquitectónica, y Prototipado Físico (Maquetas, Madera y Metal).
-5. **Características & Rigor Personal (Bento Grid):**
-   - Puntualidad estricta, atención a instrucciones, búsqueda de la solución óptima, dominio de software y herramientas de taller/hardware, vocación de servicio.
-6. **Trayectoria & Credenciales (Timeline):**
+   - 3 ejes de servicio claros (Supervisão de Obras, Modelação 3D & Figuras, Prototipado Físico & Oficina).
+   - Botón unificado y armónico de contacto.
+   - Vitrina Bento de maquetas y carpintería con altura simétrica y concentricidad.
+5. **Sección de Trabajos & Planimetría Técnica (NUEVA):**
+   - Slider interactivo con 12 pranchas ejecutivas originales de su proyecto de grado ("Centro Cultural Artístico de Valencia").
+   - Categorías filtrables: Arquitectura (A-1 a A-4, A-8), Fachadas & Cortes (A-5 a A-7), Detalles Constructivos & Tridilosa (A-9, A-10), Estructuras & Fundaciones (E-1, E-2).
+   - Lightbox modal interactivo a pantalla completa con navegación por teclado y táctil.
+   - Cuadro resumen de especificaciones técnicas (2.265 m², 3 niveles, software y rigor).
+6. **Metodología & Rigor Técnico:**
+   - 4 pilares: Puntualidad estricta, atención a instrucciones, búsqueda de la solución óptima, dominio de software y herramientas de taller.
+7. **Trayectoria & Credenciales (Timeline):**
    - 2022: Grado en Arquitectura (Universidad José Antonio Páez, Venezuela).
-   - Madeira, Portugal: Centro de operaciones para clientes locales e internacionales.
-   - Taller de Materialización: Trabajo con madera, pirograbado y corte de láminas de metal.
-7. **Preguntas Frecuentes (FAQ Accordion):**
-   - Resolución de dudas sobre trabajo a distancia, formatos de entrega, tipos de colaboración y presupuestos.
-8. **Contacto Directo & Redes (Footer):**
-   - Tarjeta personal con espacio reservado para la foto de Carlos.
-   - Botón directo de correo y botón de copiar correo al portapapeles con toast de confirmación.
-   - Enlaces directos a Instagram (`@carlosdbasilio`) y Facebook.
+   - Hoy: Supervisión de obras y modelado técnico en Madeira, Portugal.
+   - Oficio: Taller de materialización física, madera, pirograbado y metal.
+8. **Preguntas Frecuentes (FAQ Accordion):**
+   - Resolución de dudas sobre servicios técnicos autorizados, flujo remoto, formatos y reuniones.
+9. **Contacto Directo & Redes:**
+   - Tarjeta personal con la fotografía profesional de Carlos Alberto de Basilio.
+   - Botón directo de correo y botón de copiar correo al portapapeles con toast Sonner.
+   - Enlaces directos a Instagram y Facebook.
+10. **Pie de Página & Modal de Privacidad:**
+    - Identidad, contactos y copyright `© 2026 Carlos Alberto de Basilio`.
+    - Modal accesible de política de privacidad sin sección invasiva.

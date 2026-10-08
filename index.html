@@ -43,6 +43,7 @@
       <nav class="nav-links" id="main-nav" aria-label="Navegação principal">
         <a href="#problema" class="nav-item" data-i18n="nav.problem">O Problema</a>
         <a href="#servicos" class="nav-item" data-i18n="nav.services">Serviços</a>
+        <a href="#projetos" class="nav-item" data-i18n="nav.projects">Trabalhos</a>
         <a href="#metodo" class="nav-item" data-i18n="nav.method">Metodologia</a>
         <a href="#trajetoria" class="nav-item" data-i18n="nav.timeline">Trajetória</a>
         <a href="#faq" class="nav-item" data-i18n="nav.faq">Dúvidas</a>
@@ -82,6 +83,7 @@
       <nav class="mobile-nav-links">
         <a href="#problema" class="mobile-nav-link" data-i18n="nav.problem">O Problema</a>
         <a href="#servicos" class="mobile-nav-link" data-i18n="nav.services">Serviços</a>
+        <a href="#projetos" class="mobile-nav-link" data-i18n="nav.projects">Trabalhos</a>
         <a href="#metodo" class="mobile-nav-link" data-i18n="nav.method">Metodologia</a>
         <a href="#trajetoria" class="mobile-nav-link" data-i18n="nav.timeline">Trajetória</a>
         <a href="#faq" class="mobile-nav-link" data-i18n="nav.faq">Dúvidas</a>
@@ -346,8 +348,99 @@
       </div>
     </section>
 
-    <!-- 4. METHODOLOGY & RIGOR -->
-    <section class="section-padding bg-warm" id="metodo">
+    <!-- 4. WORKS & TECHNICAL BLUEPRINTS SLIDER (CARLOS'S REAL ARCHITECTURAL DRAWINGS) -->
+    <section class="section-padding bg-warm" id="projetos">
+      <div class="container-expansive">
+        <div class="section-header reveal-on-scroll">
+          <div class="eyebrow-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="projects.badge">Portfólio & Desenhos Técnicos</span>
+          </div>
+          <h2 class="section-heading" data-i18n="projects.title">
+            Trabalhos & Planimetria Executiva
+          </h2>
+          <p class="section-subheading" data-i18n="projects.subtitle">
+            Do planeamento urbano ao pormenor construtivo milimétrico: documentação executiva do Centro Cultural Artístico desenvolvida por Carlos Alberto de Basilio.
+          </p>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="blueprint-filters-row reveal-on-scroll" role="tablist" aria-label="Filtrar pranchas técnicas">
+          <button type="button" class="filter-pill active" data-filter="all" role="tab" aria-selected="true" data-i18n="projects.filterAll">Todos (12)</button>
+          <button type="button" class="filter-pill" data-filter="arquitetura" role="tab" aria-selected="false" data-i18n="projects.filterArch">Plantas de Arquitetura</button>
+          <button type="button" class="filter-pill" data-filter="fachadas" role="tab" aria-selected="false" data-i18n="projects.filterElev">Alçados & Cortes</button>
+          <button type="button" class="filter-pill" data-filter="pormenores" role="tab" aria-selected="false" data-i18n="projects.filterDetails">Pormenores & Tridilosa</button>
+          <button type="button" class="filter-pill" data-filter="estruturas" role="tab" aria-selected="false" data-i18n="projects.filterStruct">Engenharia & Estrutura</button>
+        </div>
+
+        <!-- Master Slider Card -->
+        <div class="double-bezel blueprint-slider-container reveal-on-scroll">
+          <div class="blueprint-slider-inner">
+            <!-- Active Slide Viewport -->
+            <div class="blueprint-viewport" id="blueprint-viewport">
+              <div class="blueprint-track" id="blueprint-track">
+                <!-- Dynamically populated by JS Engine -->
+              </div>
+            </div>
+
+            <!-- Slider Controls Bar -->
+            <div class="blueprint-controls-bar">
+              <div class="blueprint-counter-group">
+                <span class="counter-current" id="blueprint-current">01</span>
+                <span class="counter-sep">/</span>
+                <span class="counter-total" id="blueprint-total">12</span>
+              </div>
+
+              <!-- Thumbnails / Dots strip -->
+              <div class="blueprint-dots-strip" id="blueprint-dots" role="tablist" aria-label="Navegar pelas pranchas"></div>
+
+              <!-- Nav Arrows -->
+              <div class="blueprint-nav-btns">
+                <button type="button" class="blueprint-nav-btn" id="blueprint-prev" aria-label="Prancha anterior">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"/>
+                    <polyline points="12 19 5 12 12 5"/>
+                  </svg>
+                </button>
+                <button type="button" class="blueprint-nav-btn" id="blueprint-next" aria-label="Próxima prancha">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Specification Context Bar -->
+        <div class="blueprint-context-card double-bezel mt-20 reveal-on-scroll">
+          <div class="blueprint-context-inner">
+            <div class="context-grid">
+              <div class="context-item">
+                <span class="context-label" data-i18n="projects.ctxProjectLabel">Projeto de Tese</span>
+                <strong class="context-value">Centro Cultural Artístico de Valencia</strong>
+              </div>
+              <div class="context-item">
+                <span class="context-label" data-i18n="projects.ctxAreaLabel">Área de Intervenção</span>
+                <strong class="context-value">2.265 m² de Construção · 3 Pisos</strong>
+              </div>
+              <div class="context-item">
+                <span class="context-label" data-i18n="projects.ctxScopeLabel">Âmbito Técnico</span>
+                <strong class="context-value">Arquitetura, Estrutura, Instalações & Detalhe</strong>
+              </div>
+              <div class="context-item">
+                <span class="context-label" data-i18n="projects.ctxSoftLabel">Software & Rigor</span>
+                <strong class="context-value">AutoCAD, Desenho Técnico & Cálculo</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. METHODOLOGY & RIGOR -->
+    <section class="section-padding" id="metodo">
       <div class="container-expansive">
         <div class="section-header reveal-on-scroll">
           <h2 class="section-heading" data-i18n="method.title">
@@ -721,6 +814,44 @@
         <p class="privacy-modal-foot" data-i18n="privacy.foot">
           Para qualquer questão ou eliminação dos seus dados de contacto, envie mensagem para carlosbasilio.arq@gmail.com.
         </p>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Blueprint Lightbox Modal (Full-Screen High-Resolution Inspection) -->
+  <dialog class="blueprint-lightbox" id="blueprint-lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox-box">
+      <div class="lightbox-header">
+        <div class="lightbox-header-info">
+          <span class="lightbox-code" id="lightbox-code">PLANO A-2</span>
+          <h3 class="lightbox-title" id="lightbox-title">Planta Baixa Executiva</h3>
+        </div>
+        <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Fechar visualizador">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox-body">
+        <img src="" alt="" id="lightbox-img" class="lightbox-image">
+      </div>
+      <div class="lightbox-footer">
+        <p class="lightbox-desc" id="lightbox-desc"></p>
+        <div class="lightbox-nav-actions">
+          <button type="button" class="blueprint-nav-btn" id="lightbox-prev" aria-label="Anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+          </button>
+          <button type="button" class="blueprint-nav-btn" id="lightbox-next" aria-label="Seguinte">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </dialog>
