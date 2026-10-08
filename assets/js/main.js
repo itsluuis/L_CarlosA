@@ -428,7 +428,7 @@
   }
 
   /* ==========================================================================
-     3. SONNER-INSPIRED TOAST ENGINE
+     3. SONNER-INSPIRED TOAST ENGINE (SAFE DOM HARDENED)
      ========================================================================== */
   function showToast(message, duration = 3000) {
     const container = document.getElementById('toast-container');
@@ -436,13 +436,25 @@
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.innerHTML = `
-      <svg class="toast-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M20 6L9 17l-5-5"/>
-      </svg>
-      <span>${message}</span>
-    `;
 
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'toast-icon');
+    svg.setAttribute('width', '18');
+    svg.setAttribute('height', '18');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2.5');
+    svg.setAttribute('aria-hidden', 'true');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M20 6L9 17l-5-5');
+    svg.appendChild(path);
+
+    const span = document.createElement('span');
+    span.textContent = String(message); // Safe textContent prevents XSS
+
+    toast.appendChild(svg);
+    toast.appendChild(span);
     container.appendChild(toast);
 
     // Trigger enter animation on next microtask
@@ -764,6 +776,20 @@
     if (index >= filteredSlides.length) index = 0;
     currentBlueprintIndex = index;
 
+    function escapeHTML(str) {
+      if (str == null) return '';
+      return String(str).replace(/[&<>"']/g, match => {
+        switch (match) {
+          case '&': return '&amp;';
+          case '<': return '&lt;';
+          case '>': return '&gt;';
+          case '"': return '&quot;';
+          case "'": return '&#39;';
+          default: return match;
+        }
+      });
+    }
+
     const item = filteredSlides[currentBlueprintIndex];
     const title = getLocalizedText(item, 'title');
     const desc = getLocalizedText(item, 'desc');
@@ -774,9 +800,9 @@
     const authorLabel = translations[currentLang]['projects.author'] || 'Autor';
 
     track.innerHTML = `
-      <article class="blueprint-slide active" aria-roledescription="slide" aria-label="${item.code} - ${title}">
+      <article class="blueprint-slide active" aria-roledescription="slide" aria-label="${escapeHTML(item.code)} - ${escapeHTML(title)}">
         <!-- Left Visual Box -->
-        <div class="blueprint-canvas-box" id="blueprint-canvas-trigger" role="button" tabindex="0" aria-label="${expandBtnText}: ${item.code}">
+        <div class="blueprint-canvas-box" id="blueprint-canvas-trigger" role="button" tabindex="0" aria-label="${escapeHTML(expandBtnText)}: ${escapeHTML(item.code)}">
           <div class="blueprint-zoom-hint" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <circle cx="11" cy="11" r="8"/>
@@ -784,11 +810,11 @@
               <line x1="11" y1="8" x2="11" y2="14"/>
               <line x1="8" y1="11" x2="14" y2="11"/>
             </svg>
-            <span>${zoomText}</span>
+            <span>${escapeHTML(zoomText)}</span>
           </div>
           <img 
-            src="${item.image}" 
-            alt="Plano arquitetónico ${item.code} — ${title}" 
+            src="${escapeHTML(item.image)}" 
+            alt="Plano arquitetónico ${escapeHTML(item.code)} — ${escapeHTML(title)}" 
             class="blueprint-img"
             loading="eager"
             id="active-blueprint-img">
@@ -798,35 +824,35 @@
         <div class="blueprint-details-column">
           <div>
             <div class="blueprint-meta-header">
-              <span class="sheet-code-pill">${item.code}</span>
-              <span class="sheet-category-pill">${getCategoryLabel(item.category)}</span>
+              <span class="sheet-code-pill">${escapeHTML(item.code)}</span>
+              <span class="sheet-category-pill">${escapeHTML(getCategoryLabel(item.category))}</span>
             </div>
 
-            <h3 class="sheet-title">${title}</h3>
-            <p class="sheet-description">${desc}</p>
+            <h3 class="sheet-title">${escapeHTML(title)}</h3>
+            <p class="sheet-description">${escapeHTML(desc)}</p>
 
             <ul class="sheet-spec-list">
               <li class="sheet-spec-item">
-                <span>${scaleLabel}:</span>
-                <strong>${item.scale}</strong>
+                <span>${escapeHTML(scaleLabel)}:</span>
+                <strong>${escapeHTML(item.scale)}</strong>
               </li>
               <li class="sheet-spec-item">
-                <span>${dateLabel}:</span>
-                <strong>${item.date}</strong>
+                <span>${escapeHTML(dateLabel)}:</span>
+                <strong>${escapeHTML(item.date)}</strong>
               </li>
               <li class="sheet-spec-item">
-                <span>${authorLabel}:</span>
+                <span>${escapeHTML(authorLabel)}:</span>
                 <strong>Carlos Alberto de Basilio</strong>
               </li>
             </ul>
           </div>
 
           <div class="sheet-actions-row">
-            <button type="button" class="btn-blueprint-expand" id="btn-blueprint-modal" aria-label="${expandBtnText}">
+            <button type="button" class="btn-blueprint-expand" id="btn-blueprint-modal" aria-label="${escapeHTML(expandBtnText)}">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                 <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
               </svg>
-              <span>${expandBtnText}</span>
+              <span>${escapeHTML(expandBtnText)}</span>
             </button>
           </div>
         </div>
